@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from django import forms
-=======
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -27,4 +23,3 @@ class SignUpForm(UserCreationForm):
             'password1', 
             'password2'
             }
->>>>>>> 63973a88048828ad4a0b8b416d31834e1eecb55c
