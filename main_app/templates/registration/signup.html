@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<<<<<<< HEAD
 <div class="container center">
   <form action="" method="post">
     <label for="">FIrst Name</label>
@@ -25,5 +26,15 @@
     <input value="Create Account" type="submit" class="btn">
   </form>
 </div> -->
+=======
+<h2>Sign Up</h2>
+<div class="container center">
+  <form method="post" action="{% url 'signup' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="btn" value="Sign-Up">
+  </form>
+</div>
+>>>>>>> 63973a88048828ad4a0b8b416d31834e1eecb55c
 
 {% endblock %}

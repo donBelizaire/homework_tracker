@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.contrib.auth.models import AbstractUser
 from django import forms
 
@@ -11,3 +12,17 @@ from django import forms
 #     class_type = forms.CharField(max_length=30, required=True, label = "Class Type")
 #     def __str__(self):
 #         return self.email
+=======
+from django.contrib.auth.models import User
+from django.db import models
+from django.db import models
+from django.urls import reverse
+from django.contrib.auth.models import User
+
+class Instructor(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+
+class Student(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+
+>>>>>>> 63973a88048828ad4a0b8b416d31834e1eecb55c

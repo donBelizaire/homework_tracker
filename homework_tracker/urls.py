@@ -15,10 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+<<<<<<< HEAD
+=======
+from django.conf.urls import url
+>>>>>>> 63973a88048828ad4a0b8b416d31834e1eecb55c
 from main_app import views as main_app_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', main_app_views.register, name='register'),
     path('', include('main_app.urls')),
+    # url(r'^signup/$', main_app_views.signup, name='signup'),
 ]

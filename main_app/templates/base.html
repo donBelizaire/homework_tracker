@@ -21,19 +21,24 @@
         <ul class="right">
           <!-- All the list items below will need to be toggled depending on
           whether or not the user is logged on, or if they are an instructor -->
+
           <li><a href="{% url 'signin' %}">Sign In</a></li>
           <li><a href="{% url 'signup' %}">Sign Up</a></li>
           <li><a href="">Sign Out</a></li>
-          <li><a href="{% url 'index' %}">Course Overview</a></li>
-          <li><a href="">Grid View</a></li>
-
+          {% if user.is_authenticated %}
+          <li><a href="">Course Overview</a></li>
+          <li><a href="">Grid View</a></li>         
+          <li><a href="{% url 'logout' %}">Sign Out</a></li>   
           <a href="#" datatarget="dropdown1" class="dropdown-trigger button"></a>
           <ul id="dropdown1" class="dropdown-content">
             <li><a href="#">Reviewed work<span id="reviewed" class="new badge">none</span></a></li>
             <li><a href="#">Pending Review<span id="need-review" class="new badge">none</span></a></li>
             <li><a href="#">Missing Work<span id="missing" class="new badge">none</span></li>
           </ul>
-
+          {% else %}
+          <li><a href="{% url 'login' %}">Log In</a></li>
+          <li><a href="{% url 'signup' %}">Sign Up</a></li>  
+          {% endif %}
         </ul>
       </div>
     </nav>
