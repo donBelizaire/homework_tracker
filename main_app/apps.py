@@ -5,8 +5,3 @@ class MainAppConfig(AppConfig):
 
     def ready(self):
         import main_app.signals
-
-
-
-
-
