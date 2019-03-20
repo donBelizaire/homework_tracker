@@ -77,7 +77,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'homework_tracker',
         'USER': os.environ.get('DB_USER', 'postgres'),
-        'PASSWORD': os.environ.get('DB_PASS', 'darquevanella'),
+        'PASSWORD': os.environ.get('DB_PASS', 'avadakedavara'),
         'HOST': '127.0.0.1',
         'PORT': '1033'
     }
