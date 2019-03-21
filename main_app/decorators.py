@@ -25,5 +25,3 @@ from django.contrib.auth.decorators import user_passes_test
 #     if function:
 #         return actual_decorator(function)
 #     return actual_decorator
-
-
