@@ -23,3 +23,8 @@ class SignUpForm(UserCreationForm):
             'password1', 
             'password2'
             }
+
+class CohortCreate(CohortCreationForm):
+    city = forms.CharField(max_length=30, label='City')
+    start_date = forms.DateField(max_length=30, label='Start Date')
+    class_type = forms.CharField(max_length=30, label='Class Type')
