@@ -47,10 +47,4 @@ Here is a link to our Pitch Deck (https://trello.com/b/w0hA2pvD/wdi-project-3).
 ## Ice Box
 
 Below are features that will be implemented in the future:
-+ Implement multiple user profiles
 
-+ Makers will be able to see all posts made to their worlds.
-
-+ Makers will be able to approve or reject what becomes part of their World document or "Cannon"
-
-+ shapers will be able to
