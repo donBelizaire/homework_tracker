@@ -16,7 +16,7 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
   <title>GA Homework Tracker</title>
-  <style>
+  <!-- <style>
 
   body {
     font-size: 62.5%;
@@ -108,7 +108,7 @@
     }
   }
 
-  </style>
+</style> -->
 </head>
 <body>
   <header class="navbar-fixed">
@@ -117,8 +117,8 @@
         <a href="" class="brand-logo left">Home</a>
         <ul class="right">
           {% if user.is_authenticated %}
-          <li><a href="">Course Overview</a></li>
-          <li><a href="{% url 'cohort_select.html' %}">Cohort View</a></li>
+          <li><a href="">Cohort Overview</a></li>
+          <li><a href="{% url 'cohort_select' %}">Cohort Select</a></li>
           <li><a href="{% url 'student_detail' %}">Student Detail</a></li>
           <li><a href="{% url 'logout' %}">Sign Out</a></li>
           <a href="#" datatarget="dropdown1" class="dropdown-trigger button"></a>
@@ -141,30 +141,7 @@
     {% endblock %}
   </main>
 
-  <footer class="page-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Footer Content</h5>
-          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-        </div>
-        <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Links</h5>
-          <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-      © 2014 Copyright Text
-      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-      </div>
-    </div>
+  <footer>
   </footer>
 
 </body>
@@ -230,9 +207,3 @@
   });
 </script>
 </html>
-
-<script>
-  $(document).ready(function() {
-    $('select').attr("class", "browser-default")
- });
- </script>

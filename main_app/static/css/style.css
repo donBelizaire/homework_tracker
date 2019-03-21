@@ -1,7 +1,11 @@
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+body, html {
+  max-height: 100%;
+}
+
+body, html, main, footer, header {
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 cohort_img {
@@ -14,13 +18,13 @@ main {
   flex: 1 0 auto;
 }
 
-/* body {
+
+body {
   font-size: 62.5%;
   background: #dadada;
   font-family: 'Open Sans', sans-serif;
   line-height: 2;
-  /* padding: 5em; */
-} */
+}
 
 .accordion {
   font-size: 1rem;
@@ -96,7 +100,7 @@ main {
 
 @media screen and (max-width: 1000px) {
   body {
-    padding: 1em;
+    /* padding: 1em; */
   }
 
   .accordion {

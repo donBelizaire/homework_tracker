@@ -3,37 +3,15 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Profile
 from .choices import USERTYPE_CHOICES, LOCATION_CHOICES, CLASSTYPE_CHOICES, DATE_CHOICES
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
-from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions
 
-class RegistrationForm(forms.ModelForm):
+class ProfileForm(forms.ModelForm):
     first_name = forms.CharField(max_length=30, label='', help_text='', widget=forms.TextInput(attrs={"placeholder": "Input your first name"}))
     last_name = forms.CharField(max_length=30, label='', help_text='', widget=forms.TextInput(attrs={"placeholder": "Input your last name"}))
-    # username = forms.CharField(max_length=30, label='', help_text='', widget=forms.TextInput(attrs={"placeholder": "Input username"}))
-    email = forms.EmailField(max_length=250, label='', help_text='', widget=forms.TextInput(attrs={"placeholder": "Input your email"}))
-
-    usertype = forms.CharField(
-        label= "Student or Instructor",
-        initial = '',
-        widget=forms.Select(choices=USERTYPE_CHOICES)
-    )
-
-    location = forms.CharField(
-        label="What City is your cohort in?",
-        widget=forms.Select(choices=LOCATION_CHOICES)
-    )
-
-    class_start_date = forms.DateField(
-        widget = forms.Select(choices=DATE_CHOICES),
-    )
-
-    class_type = forms.CharField(
-        label = "Class Type",
-        initial= '',
-        widget = forms.Select(choices=CLASSTYPE_CHOICES)
-    )
-
+    email = forms.CharField(required=False, max_length=250, label='', help_text='', widget=forms.TextInput(attrs={"placeholder": "Input your email"}))
+    usertype = forms.CharField(label= "Student or Instructor", initial = '', widget=forms.Select(choices=USERTYPE_CHOICES))
+    location = forms.CharField(label="What City is your cohort in?", widget=forms.Select(choices=LOCATION_CHOICES))
+    class_start_date = forms.CharField(required=False, widget = forms.Select(choices=DATE_CHOICES))
+    class_type = forms.CharField(label = "Class Type", initial= '', widget = forms.Select(choices=CLASSTYPE_CHOICES))
     # password1 = forms.CharField(max_length=30, label='', help_text='', widget=forms.PasswordInput(attrs={"placeholder": "Input your password"}))
     # password2 = forms.CharField(max_length=30, label='', help_text='', widget=forms.PasswordInput(attrs={"placeholder": "Confirm your password"}))
 
@@ -52,12 +30,15 @@ class RegistrationForm(forms.ModelForm):
             # 'password2'
         ]
 
-    helper = FormHelper()
-    helper.form_class = 'form-horizontal'
-    FormActions(
-        Submit('save_changes', 'Save changes', css_class="btn-primary"),
-        Submit('cancel', 'Cancel'),
-    )
+
+
+
+    # helper = FormHelper()
+    # helper.form_class = 'form-horizontal'
+    # FormActions(
+    #     Submit('save_changes', 'Save changes', css_class="btn-primary"),
+    #     Submit('cancel', 'Cancel'),
+    # )
     # )
 
 # class MessageForm(forms.Form):
@@ -116,3 +97,6 @@ class RegistrationForm(forms.ModelForm):
 #             Submit('cancel', 'Cancel'),
 #         )
 #     )
+
+
+# class CohortCreationForm(forms.ModelForm):

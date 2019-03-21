@@ -1,14 +1,17 @@
 from django.contrib.auth import login
 from django.contrib.auth.models import User
 from django.dispatch import receiver
-# from django.core.signals import post_save
+from django.db.models.signals import post_save
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import TemplateView
 from django.contrib.auth.forms import UserCreationForm
-from .forms import RegistrationForm
+from .forms import ProfileForm
+# from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from .models import Profile
 
+# Create your views here.
 def home(request):
   return render(request, 'home.html')
 
@@ -18,8 +21,14 @@ def index(request):
 def signin(request):
   return render(request, 'registration/signin.html')
 
-def registration(request):
-  return render(request, 'registration/registration.html', {'form': RegistrationForm()})
+def student_detail(request):
+  return render(request, 'instructors/student_detail.html')
+
+def cohort_select(request):
+  return render(request, 'instructors/cohort_select.html')
+
+def register(request):
+  return render(request, 'registration/register.html')
 
 def signup(request):
   error_message = ''
@@ -27,92 +36,56 @@ def signup(request):
     form = UserCreationForm(request.POST)
     if form.is_valid():
       user = form.save()
+      profile_form = ProfileForm()
+      user_form = UserCreationForm()
       login(request, user)
       return redirect('registration')
     else:
       error_message = 'Invalid credentials - try again'
   form = UserCreationForm()
-  context = {'form': form, 'error_message': error_message}
+  context = {'UserCreationForm': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
-# def register(request):
-#   error_message = ''
-#   if request.method == 'POST':
-#     form = RegistrationForm(request.POST)
-#     if form.is_valid():
-#       profile = form.save()
-#       return redirect('index')
-#     else:
-#       error_message = 'Invalid credentials - try again'
-#   form = RegistrationForm()
-#   context = {'form': form, 'error_message': error_message}
-#   return render(request, './templates/home.html', context)
+def registration(request):
+  user = request.user
+  return render(request, 'registration/registration.html', {'form': ProfileForm})
 
-# class ProfileCreate(CreateView):
-#   print('Is the function even running?')
-#   model = Profile
-#   print("We made it to the first line")
-#   fields = ['first_name', 'last_name', 'email', 'usertype', 'location', 'class_start_date', 'class_type']
-
-#   def form_valid(self, RegistrationForm):
-#     RegistrationForm.instance.user = self.request.user
-#     return super().RegistrationForm_valid(RegistrationForm)
-#   print('This is a test 123456789')
-#   success_url = './templates/home.html'
-#   print('This is another test 123444444')
-
-# @receiver(post_save, sender=User)
-# def ensure_profile_exists(sender, **kwargs):
-#   if kwargs.get('created', False):
-#     Profile.objects.get_or_create(user=kwargs.get('instance'))
-
-# def register(request, user_id):
-#   form = RegistrationForm(request.POST)
-#   if form.is_valid():
-#     new_profile = form.save(commit=False)
-#     new_profile.user_id = user_id
-#     new_profile.save()
-#   return redirect('home', user_id=user_id)
-
-def register(request):
-  print('This info should be pushed to the database')
+def create_profile(request):
+  print('CreateProfile is getting hit')
   error_message = ''
   if request.method == 'POST':
-    form = RegistrationForm(request.POST)
-    print('The request method is working')
-    if form.is_valid():
-      print('the form is valid')
-      post = form.save(commit=False)
-      post.user = request.user
-      post.save()
-      return redirect('./templates/home')
+    # user_form = UserCreationForm(request.POST, instance=request.user)
+    profile_form = ProfileForm(request.POST)
+    print('Made it past user_form & profile_form')
+    if profile_form.is_valid():
+      print('Forms have been validated')
+      new_profile = profile_form.save(commit=False)
+      new_profile.user = request.user
+      print('new_profile.user = request.user is working')
+      # print(profile_form)
+      profile_form.save()
+      print(profile_form.save())
     else:
-      error_message = 'Invalid profile credentials - try again'
-      print('The form is invalid')
-  print('The request method is not POST')
-  form = RegistrationForm()
-  context = {'form': form, 'error_message': error_message}
-  print('We are re-routing')
-  return render(request, './templates/home', context)
-
-# def register(request):
-#   class ProfileCreate(CreateView):
-#     model = Profile
-#     fields = ['user', 'first_name', 'last_name', 'email', 'usertype', 'location', 'class_start_date', 'class_type', 'password1', 'password2']
-
-#   def form_valid(self, form):
-#     form.instance.user = self.request.user
-#     return super().form_valid(form)
+      msg = 'Errors: %s' % profile_form.errors.as_text()
+      print(msg)
+  else:
+    print('We are hitting the redirect')
+    user_form = UserCreationForm(instance=request.user)
+    profile_form = ProfileForm(instance=request.user.profile)
+  return redirect('index')
 
 
-# class SignUpForm(UserCreationForm):
-#     first_name = forms.CharField(max_length=30, required=True)
-#     last_name = forms.CharField(max_length=30, required=True)
-#     email = forms.EmailField(max_length=256, required=True)
-#     location = forms.CharField(max_length=30, required=True)
-#     class_start_date = forms.CharField(max_length=30, required=True)
-#     class_type = forms.CharField(max_length=30, required=True)
+# def add_comment(request):
+#   #instructor can comment on assignments
 
-#     class Meta:
-#         model = User
-#         fields = {'first_name', 'last_name', 'email', 'location', 'class_start_date', 'class_type', 'password1', 'password2'}
+# def add_assignment(request):
+#   #instructor can add an assignment
+
+# def view_assignment(request):
+#   #instructor or student can view assignment
+
+# def delete_assignment(request):
+#   #instructor or student can view assignment
+
+# def updload_assignment(request):
+#   #student can upload an assignment
