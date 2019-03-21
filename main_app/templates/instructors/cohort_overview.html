@@ -1,19 +1,37 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<!-- Basic Modal Structure -->
-<!-- <div class="center-modal">
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <h4>Modal Header</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Tempore nulla eaque dolor quos nisi eius eum accusamus 
-                vero aliquam cupiditate. Debitis atque labore totam porro 
-                aspernatur nihil qui ratione voluptates?</p>
-            </div>
-            <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-            </div>
-        </div>
-    </div> -->
+<div id="grid_view_wrapper">
+  <div style="display: none;" class="grid_box"></div>
+  <ul style="list-style: none;">
+    {% for student in students %}
+      <li style="float: left;" class="outlier grid_box">{{ student.name }}</li>
+    {% endfor %}
+  </ul>
+  <ul style="list-style: none;">
+    {% for assignment in assignments %}
+      <div class="grid_box">{{ assignment.name }}</div>
+    {% endfor %}
+  </ul>
+
+  <div id="inner_grid">
+
+    {% for assignment in assignments %}
+      <form class="form_checkbox" action="#">
+        <p>
+          {% for student in students %}
+          <label  class="grid_box">
+            <input type="{{ user.assignment.status }}">
+            <span></span>
+          </label>
+          {% endfor %}
+        </p>
+      </form>
+      <br>
+    {% endfor %}
+
+
+  </div>
+
+</div>
 {% endblock %}
