@@ -1,7 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 
-{% for unit in units %}
+<div>
+  <div class="left_side">
+    <div class="card">
+      <div class="card-image">
+        <img src="{% static 'img/image.jpg' %}">
+      </div>
+      <section>
+        <div class="card-content">
+          Student Name
+        </div>
+        <div class="card-action">
+          Student Email
+        </div>
+      </section>
+    </div>
+  </div>
+  {% for unit in units %}
   <div class="right_side">
     <div class="accordion js-accordion">
       <div class="accordion__item js-accordion-item">
@@ -14,6 +31,7 @@
       </div>
     </div>
   </div>
-{% endfor %}
+  {% endfor %}
+</div>
 
 {% endblock %}

@@ -8,21 +8,38 @@ body, html, main, footer, header {
   padding: 0;
 }
 
-cohort_img {
+section {
+  font-size: 15px;
+  font-family: 'Markazi Text';
+}
+
+.cohort_img {
   width: 40%;
   border-radius: 50%;
   border: 5px inset black;
+}
+
+header {
+  font-family: 'Arvo';
 }
 
 main {
   flex: 1 0 auto;
 }
 
+.left_side {
+  float: left;
+  width: 50%;
+}
+
+.right_side {
+  float: right;
+  width: 50%;
+}
 
 body {
   font-size: 62.5%;
   background: #dadada;
-  font-family: 'Open Sans', sans-serif;
   line-height: 2;
 }
 
