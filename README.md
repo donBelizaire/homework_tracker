@@ -1,11 +1,11 @@
 # Homework Tracker.
 
 The "HAPPY_LITTLE_CODERS" welcomes you to our Homework Tracker. A sone stop Assignment tracking database 
-![Home Page]( "https://imgur.com/8wDzF0k""Homework Tracker Home Page")
+![Home Page](https://imgur.com/8wDzF0k "Homework Tracker Home Page")
 
-![Student Overview](" https://imgur.com/RLZzpcm" )
+![Student Overview](https://imgur.com/RLZzpcm)
 
-![Student Overview](" https://imgur.com/kB8ao6g" )
+![Student Overview](https://imgur.com/kB8ao6g)
 
 ## User Stories
 
