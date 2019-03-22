@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.modal');
   var instances = M.Modal.init(elems, options);
 });
+
 var accordion = (function() {
 
   var $accordion = $('.js-accordion');
@@ -40,14 +41,14 @@ var accordion = (function() {
           .find('> .js-accordion-item')
           .removeClass('active')
           .find('.js-accordion-body')
-          .slideUp()
+          .slideUp();
       }
 
       // show/hide the clicked accordion item
       $this.closest('.js-accordion-item').toggleClass('active');
       $this.next().stop().slideToggle(settings.speed);
     }
-  }
+  };
 })();
 
 $(document).ready(function() {

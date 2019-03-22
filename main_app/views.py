@@ -27,6 +27,9 @@ def student_detail(request):
 def cohort_select(request):
   return render(request, 'instructors/cohort_select.html')
 
+def cohort_overview(request):
+  return render(request, 'instructors/cohort_overview.html')
+
 def register(request):
   return render(request, 'registration/register.html')
 
