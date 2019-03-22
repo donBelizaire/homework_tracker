@@ -3,36 +3,62 @@
 {% load static %}
 <script src="{% static 'scripts/script.js' %}" type="text/javscript" defer></script>
 
-<div class="row">
-<div class="col s6">
-  <div class="profile card medium">
-    <div class="card-image">
-      <img src="{% static 'img/image.jpg' %}">
-    </div>
-    <section class='grey darken-4'>
-      <div class="card-content">
-        Student Name
-      </div>
-      <div class="card-action">
-        Student Email
-      </div>
-    </section>
+<div id= "student_detail_card" class = "row">
+  <div class = "col s6">
+     <div class = "card blue-grey lighten-4">
+        <div class = "card-image waves-effect waves-block waves-light">
+           <img class = "activator" src = "{% static 'img/image.jpg' %}">                
+        </div>
+        
+        <div class = "card-content activator">                  
+           <p>Student Name</p>
+        </div>
+        
+        <div class = "card-reveal">
+           <span class = "card-title grey-text text-darken-4">Student Name
+              <i class = "material-icons right">close</i></span>
+           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+             Quas, similique magnam laboriosam harum pariatur delectus 
+             hic cum ut sunt officiis laudantium adipisci ullam fuga nesciunt 
+             architecto fugiat fugit praesentium aspernatur?.</p>
+        </div>
+        
+        <div class = "card-action">
+            <div class="card-action">
+                Student Email
+              </div>
+        </div>
+     </div>
   </div>
 </div>
-<!-- {% for unit in units %} -->
-<div class="col s6">
-  <div class="accordion js-accordion">
-    <div class="accordion__item js-accordion-item">
-      <div class="accordion-header js-accordion-header">Unit unit info here </div>
-      <div class="accordion-body__contents">
-        <ul>
-          <li><span>Date: date goes here </span> assignment goes here <button href="#modal1" class="btn modal-trigger"><a href="">GitHub Link</a></button></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- {% endfor %} -->
+
+<ul class = "collapsible popout col s6" data-collapsible = "accordion">
+    <li>
+       <div class = "collapsible-header">
+          <i class = "material-icons"></i>Unit 1</div>
+       <div class = "collapsible-body"><p>Lorem ipsum dolor sit amet consectetur adipisicing 
+         elit. Aut officiis accusamus ut ducimus impedit nemo ab eum perferendis, illo aliquid 
+         repellat labore repellendus commodi atque, assumenda vero eveniet veritatis 
+         necessitatibus.</p></div>
+    </li>
+    
+    <li>
+       <div class = "collapsible-header">
+          <i class = "material-icons"></i>Unit 2</div>
+       <div class = "collapsible-body"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+         Sequi hic enim, sunt harum, tempora reprehenderit deserunt accusantium pariatur in illum 
+         maxime animi quod distinctio debitis nesciunt minus quos assumenda sit.</p></div>
+    </li>
+    
+    <li>
+       <div class = "collapsible-header">
+          <i class = "material-icons"></i>Unit 3</div>
+       <div class = "collapsible-body"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+         Vitae quis, ut facilis adipisci voluptatem et, perferendis quasi explicabo harum minima in, 
+         atque asperiores culpa aut cum consequuntur nam vel eveniet.</p></div>
+    </li>
+ </ul>
+
 </div>
 
 {% endblock %}
