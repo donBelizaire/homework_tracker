@@ -19,10 +19,10 @@
   <header class="navbar-fixed">
     <nav class="grey darken-4">
       <div class="nav-wrapper">
-        <a href="" class="brand-logo left">Home</a>
+        <a href="{% url 'home' %}" class="brand-logo left">Home</a>
         <ul class="right">
           {% if user.is_authenticated %}
-          <li><a href="">Cohort Overview</a></li>
+          <li><a href="{% url 'cohort_overview' %}">Cohort Overview</a></li>
           <li><a href="{% url 'cohort_select' %}">Cohort Select</a></li>
           <li><a href="{% url 'student_detail' %}">Student Detail</a></li>
           <li><a href="{% url 'logout' %}">Sign Out</a></li>
@@ -46,69 +46,11 @@
     {% endblock %}
   </main>
 
-  <footer>
+  <footer class="page-footer grey darken-4">
+    <div class="container">
+        <span>Brought to you by <strong>the_happy_little_coders</strong> <i class="material-icons">brush</i></span>
+    </div>
   </footer>
 
 </body>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.modal');
-    var instances = M.Modal.init(elems, options);
-  });
-  var accordion = (function() {
-
-    var $accordion = $('.js-accordion');
-    var $accordion_header = $accordion.find('.js-accordion-header');
-    var $accordion_item = $('.js-accordion-item');
-
-    // default settings
-    var settings = {
-      // animation speed
-      speed: 400,
-
-      // close all other accordion items if true
-      oneOpen: false
-    };
-
-    return {
-      // pass configurable object literal
-      init: function($settings) {
-        $accordion_header.on('click', function() {
-          accordion.toggle($(this));
-        });
-
-        $.extend(settings, $settings);
-
-        // ensure only one accordion is active if oneOpen is true
-        if (settings.oneOpen && $('.js-accordion-item.active').length > 1) {
-          $('.js-accordion-item.active:not(:first)').removeClass('active');
-        }
-
-        // reveal the active accordion bodies
-        $('.js-accordion-item.active').find('> .js-accordion-body').show();
-      },
-      toggle: function($this) {
-
-        if (settings.oneOpen && $this[0] != $this.closest('.js-accordion').find('> .js-accordion-item.active > .js-accordion-header')[0]) {
-          $this.closest('.js-accordion')
-            .find('> .js-accordion-item')
-            .removeClass('active')
-            .find('.js-accordion-body')
-            .slideUp()
-        }
-
-        // show/hide the clicked accordion item
-        $this.closest('.js-accordion-item').toggleClass('active');
-        $this.next().stop().slideToggle(settings.speed);
-      }
-    }
-  })();
-
-  $(document).ready(function() {
-    accordion.init({
-      speed: 300,
-      oneOpen: true
-    });
-  });
-</script>
 </html>
