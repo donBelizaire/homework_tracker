@@ -90,5 +90,18 @@ def create_profile(request):
 # def delete_assignment(request):
 #   #instructor or student can view assignment
 
+#     class Meta:
+#         model = User
+#         fields = {'first_name', 'last_name', 'email', 'location', 'class_start_date', 'class_type', 'password1', 'password2'}
+
+
+
+# // this function is used to output PDF files to a template without downloading it
+# def pdf_view(request):
+#     with open('/path/to/my/file.pdf', 'r') as pdf:
+#         response = HttpResponse(pdf.read(), mimetype='application/pdf')
+#         response['Content-Disposition'] = 'inline;filename=some_file.pdf'
+#         return response
+#     pdf.closed
 # def updload_assignment(request):
 #   #student can upload an assignment
