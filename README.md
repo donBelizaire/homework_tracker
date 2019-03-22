@@ -1,13 +1,15 @@
 # Homework Tracker.
 
-The "HAPPY_LITTLE_CODERS" welcomes you to our Homework Tracker. A one stop Assignment tracking database 
-![Home Page]( "Homework Tracker Home Page")
+The "HAPPY_LITTLE_CODERS" welcomes you to our Homework Tracker. A sone stop Assignment tracking database 
+![Home Page]( "https://imgur.com/8wDzF0k""Homework Tracker Home Page")
 
-![Overview]("Homework Tracker Overview")
+![Student Overview](" https://imgur.com/RLZzpcm" )
+
+![Student Overview](" https://imgur.com/kB8ao6g" )
 
 ## User Stories
 
-As a user, As a visitor, I want to login on the apps landing page.
+As a user, As a visitor, I want to log in on the apps landing page.
 
 As a user, I would like to view all of the upcoming assignments and upload assignments after completion.
 
@@ -21,8 +23,9 @@ As a user, I would like to navigate to a specific students profile, access their
 
 ## Wireframe and ERD
 
-Here is a [link](https://trello.com/b/w0hA2pvD/wdi-project-3) to our group trello which containes the ERD and Wireframes.
-Here is a link to our Pitch Deck (https://trello.com/b/w0hA2pvD/wdi-project-3).
+-   Here is a [link](https://trello.com/b/w0hA2pvD/wdi-project-3) to our group trello which contains the ERD and Wireframes.
+
+-   Here is a link to our Pitch Deck (https://trello.com/b/w0hA2pvD/wdi-project-3).
 
 ## Technology Stack
 
@@ -37,14 +40,18 @@ Here is a link to our Pitch Deck (https://trello.com/b/w0hA2pvD/wdi-project-3).
 
 
 ## Challenges/Lessons
-
++   User Authentication
++   Form Data Management
++   GitHub Workflow Mangement
++   General Django jankyness
 
 ## Unsolved Problems
-
-
-+ Heroku deployment not active.
+-   Implementing Dual profile authentication 
+-   Assignment tracker Overview
+-   Heroku deployment not active.
 
 ## Ice Box
-
 Below are features that will be implemented in the future:
-
+-   Upload Files
+-   Render uploaded documents to the screen
+-   allow both Instructor and User profiles to perform CUD 
